@@ -1,0 +1,103 @@
+
+
+
+CKPM
+DPG
+DPM
+DMG
+DMD
+
+KDA
+챔피언
+승패
+게임시간
+
+총 딜량
+골드당 딜량
+분당 딜량
+킬 당 딜량
+팀 내 딜량 비중
+
+총 피해량
+데스당 피해량
+팀 내 피해량 비중
+적에게 가한 CC기
+
+누상촌돗자리장수  MasterYi       43564   564   3456
+
+RGAPI-9e90a1f0-2eb4-43f2-8437-76d81e963bc2
+
+RGAPI-9e90a1f0-2eb4-43f2-8437-76d81e963bc2
+
+450 칼바람나락
+440 자유랭크
+420 솔로랭크
+400, 430 : 일반
+
+ARAM
+RankedFlex
+RankedSolo
+Normal
+
+450 칼바람
+1700 아레나
+440 자유랭크
+420 솔랭
+400, 440 : 일반
+700 : 격전
+8** :AI
+900 : 우르프
+920 : 포로왕
+1020:단일
+1300:돌넥
+1400:궁주문서
+2000=<:튜토리얼
+
+
+JSONArray jsonArray = new JSONArray(getResponse(false, apiUrlLeague, id));
+
+for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String queueType = jsonObject.getString("queueType");
+            if (queueType.equals("RANKED_SOLO_5x5")) {
+            	tier = jsonObject.getString("tier");
+            	rank = jsonObject.getString("rank");
+            	wins = jsonObject.getInt("wins");
+            	losses = jsonObject.getInt("losses");
+            }
+        }
+
+
+/*
+		System.out.printf("%-16s", champion);
+		System.out.printf("%-15s", df.format(damageDealt) + " (" + toPercent(valuePerDivison(damageDealt, totalDealt, 2)) + ")");
+		System.out.printf("%-8s", toPercent(valuePerDivison(damageDealt, gold, 2)));
+		System.out.printf("%-12s", df.format((int)round(valuePerDivison(damageDealt, kills, 1))));
+		System.out.printf("%-15s", df.format(damageTaken) + " (" + toPercent(valuePerDivison(damageTaken, totalTaken, 2)) + ")");
+		String dpd = checkPerfect(valuePerDivison(damageTaken, deaths, 1), true);
+		try { 
+			dpd = df.format(Integer.parseInt(dpd));
+		} catch(NumberFormatException e) {
+		} finally {System.out.printf("%-9s", dpd);}
+		System.out.printf("%-8d", ccingOthers);
+		System.out.printf("%s", summonerName);
+		System.out.println(); */
+
+
+
+private int winTeamDamageDealt = 0;
+	private int winTeamDamageTaken = 0;
+	private int winTeamGold = 0;
+	private int winTeamKills = 0;
+	private int winTeamDeaths = 0;
+	private int winTeamCCing = 0;
+	
+	private int lossTeamDamageTaken = 0;
+	private int lossTeamDamageDealt = 0;
+	private int lossTeamGold = 0;
+	private int lossTeamKills = 0;
+	private int lossTeamDeaths = 0;
+	private int lossTeamCCing = 0;
+
+damageTakenOnTeamPercentage : 맞은 비율
+"teamDamagePercentage": 때린 비율
